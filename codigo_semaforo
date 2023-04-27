@@ -1,0 +1,72 @@
+// C++ code
+//
+#define ROJO 13
+#define AMARILLO 12
+#define VERDE 11
+#define BUZZER 10
+//se definen los los led a los pines
+void Encender(int led,int tiempo);
+void EncenderBuzzer(int led);
+//se firman las funciones Encender, que pide por parametro el led y un tiempo  
+//y EncenderBuzzer, que pide por parametro el led
+void setup()
+{
+  pinMode(AMARILLO,OUTPUT);
+  pinMode(ROJO, OUTPUT);
+  pinMode(VERDE,OUTPUT);
+  pinMode(BUZZER,OUTPUT);
+  // se setean las salidas de los leds y el buzzer
+}
+
+void loop()
+{
+  Encender(ROJO,30000);
+  Encender(AMARILLO,5000);
+  Encender(VERDE,45000);
+  Encender(AMARILLO,5000);
+  //se utiliza la funcion encender para poder prender los leds
+}
+void Encender(int led, int tiempo)
+{
+  digitalWrite(led, HIGH);
+  delay(100);
+  EncenderBuzzer(led);
+  digitalWrite(led, LOW); 
+  delay(100);
+  //se ingresan por parametro el led y tiempo que tiene que durar el semaforo
+  //encendido y se apaga 100 ms despues de que termine ese tiempo
+}
+void EncenderBuzzer(int led)
+{
+  //se ingresa por parametro el led
+  switch(led)
+  {
+  	case ROJO:
+  		for(int i=0;i<30;i++)
+    	{ 
+          tone(10,600);
+          delay(500);
+          noTone(10);
+          delay(500);
+          //en el caso de que el led prendido sea el rojo
+          //el buzzer sonará una vez por segundo
+      	}
+    	break;
+    case AMARILLO:
+    	for(int i=0;i<2;i++)
+        {
+          tone(10,100);
+          delay(1000);
+          noTone(10);
+          delay(1000);
+          //en el caso de que el led prendido sea amarillo
+          //el buzzer sonará una vez cada 2 segundos
+        }
+      	break;
+    case VERDE:
+    	noTone(10);
+        delay(45000);
+          //en el caso de que el led prendido sea verde
+          //el buzzer no sonará por 45 segundos
+    }
+}
