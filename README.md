@@ -1,4 +1,4 @@
-# dojo-1Proyecto 1
+# dojo-1Proyecto 1 Federico Corbalán
 Proyecto: semaforo con buzzer
 
 ![image](https://user-images.githubusercontent.com/123754871/234938924-46b718dc-bdfd-4157-822d-85ff56b21fc1.png)
